@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seongjki <seongjk@student.42seoul.k>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/25 15:14:03 by seongjki          #+#    #+#             */
-/*   Updated: 2021/09/27 18:01:56 by seongjki         ###   ########.fr       */
+/*   Created: 2021/10/05 15:29:59 by seongjki          #+#    #+#             */
+/*   Updated: 2021/10/05 17:01:03 by seongjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 static void	sighandler(int signo)
 {
 	if (signo == 30)
-		ft_printf("Connection Success!\n");
+		ft_printf("1 Byte Sending is Success!\n");
 }
 
 static char	*make_binary(unsigned int num, char *base)
@@ -56,7 +56,10 @@ static void	send_signal(char *binary, int pid)
 			signal(SIGUSR1, sighandler);
 		}
 		else
-			ft_printf("Invalid PID\n");
+		{
+			ft_printf("Error!\n");
+			exit(0);
+		}
 		usleep(50);
 		binary++;
 	}
@@ -86,7 +89,10 @@ int	main(int ac, char **av)
 	int		cli_pid;
 
 	if (ac < 3)
+	{
 		ft_printf("Please, more argument!");
+		exit(0);
+	}
 	else
 	{
 		cli_pid = getpid();

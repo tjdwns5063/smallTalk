@@ -6,7 +6,7 @@
 /*   By: seongjki <seongjk@student.42seoul.k>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 15:14:03 by seongjki          #+#    #+#             */
-/*   Updated: 2021/09/27 15:26:18 by seongjki         ###   ########.fr       */
+/*   Updated: 2021/10/05 17:00:11 by seongjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,11 @@ int	main(int ac, char **av)
 	int		pid;
 
 	if (ac < 3)
-		ft_printf("Please, more argument!");
-	else
 	{
-		pid = ft_atoi(av[1]);
-		to_str = av[2];
-		ft_printf("%s\n", to_str);
-		convert_binary(to_str, pid);
+		ft_printf("Please, more argument!");
+		exit(0);
 	}
+	pid = ft_atoi(av[1]);
+	to_str = av[2];
+	convert_binary(to_str, pid);
 }

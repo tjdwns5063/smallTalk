@@ -6,7 +6,7 @@
 /*   By: seongjki <seongjk@student.42seoul.k>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:29:59 by seongjki          #+#    #+#             */
-/*   Updated: 2021/10/05 17:01:03 by seongjki         ###   ########.fr       */
+/*   Updated: 2021/10/06 11:51:50 by seongjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	send_signal(char *binary, int pid)
 	}
 }
 
-static void	convert_binary(char *to_str, int pid)
+static void	communicate_server(char *to_str, int pid)
 {
 	char	*binary;
 
@@ -99,6 +99,6 @@ int	main(int ac, char **av)
 		svr_pid = ft_atoi(av[1]);
 		to_str = av[2];
 		ft_printf("[Clinet PID %d]\n", cli_pid);
-		convert_binary(to_str, svr_pid);
+		communicate_server(to_str, svr_pid);
 	}
 }

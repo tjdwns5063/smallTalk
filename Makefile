@@ -34,7 +34,7 @@ CLI_BONUS_OBJ_NAME = $(CLI_BONUS_SRC:.c=.o)
 CLI_OBJ = $(CLI_OBJ_NAME)
 CLI_BONUS_OBJ = $(CLI_BONUS_OBJ_NAME)
 
-PRINTF_DIR = ./ft_printf/
+PRINTF_DIR = ./ft_printf
 PRINTF_NAME = ftprintf
 PRINTF = $(PRINTF_DIR)lib$(PRINTF_NAME).a
 
@@ -42,7 +42,7 @@ NAME = $(SVR) $(CLI)
 IS_BONUS = 0
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -I./include 
+INCLUDE = -I./include -I./ft_printf/include
 
 ifeq ($(IS_BONUS),1)
 	SVR_OBJECTS = $(SVR_BONUS_OBJ)
